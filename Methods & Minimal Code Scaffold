@@ -282,13 +282,13 @@ proba = clf.predict_proba(X_val)
 pd.DataFrame({'score': proba}).to_csv('out/val_scores.csv', index=False)
 
 3) How to run (prototype)
-1. Export PaySim (or your dataset) to data/transactions.parquet with columns: src, dst, amount, ts, label (ints/floats; ts in epoch seconds).
+1. Export PaySim (or any dataset) to data/transactions.parquet with columns: src, dst, amount, ts, label (ints/floats; ts in epoch seconds).
 2. python scripts/train_supervised.py to train the XGBoost head on simple features.
 3. Extend by:
     * Pretraining sste.py (build a loader of per-account sequences; save embeddings).
     * Replacing graph_features with PyG/DGL-based embeddings.
     * Running distill.py on X and the ensemble scores to get rules.
-4) Expected deliverables for your paper repo
+4) Expected deliverables
 * Reproducible configs (YAML) for ablations (w/ & w/o SSTE, GRP, SRI).
 * Metrics notebook with PR/ROC, Recall@FPR≤1%, calibration curves.
 * Casebook of top-50 alerts with rule explanations and feature attributions.
