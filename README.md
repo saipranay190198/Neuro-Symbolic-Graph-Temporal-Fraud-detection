@@ -13,7 +13,7 @@ It supports **real-time scoring (<100ms latency)** and generates **human-readabl
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 nsgt-fraud-detection/
@@ -38,7 +38,7 @@ nsgt-fraud-detection/
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### 1. Clone the repo
 
@@ -108,10 +108,10 @@ Each alert comes with:
 
 ##  Roadmap
 
-* [ ] Add Deep Graph Infomax objective for unsupervised GraphSAGE.
-* [ ] Build Docker Compose for real-time demo (Kafka + Redis + Model Server).
-* [ ] Extend PaySim loader to support streaming simulation.
-* [ ] Add benchmark notebooks (PR-AUC, Recall\@FPR).
+*  Add Deep Graph Infomax objective for unsupervised GraphSAGE.
+*  Build Docker Compose for real-time demo (Kafka + Redis + Model Server).
+*  Extend PaySim loader to support streaming simulation.
+*  Add benchmark notebooks (PR-AUC, Recall\@FPR).
 
 ---
 
