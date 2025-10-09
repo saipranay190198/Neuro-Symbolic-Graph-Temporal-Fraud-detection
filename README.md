@@ -5,9 +5,9 @@ This repository contains an end-to-end framework for real-time fraud detection u
 
 The system combines:
 
-Self-Supervised Temporal Encoders (SSTE)** for transaction sequence modeling.
-Graph Risk Propagation (GRP)*with **GraphSAGE (PyTorch Geometric)** to capture layered fraud rings and relational risk.
-Symbolic Rule Inducer (SRI) for **interpretable rules** distilled from the ensemble.
+Self-Supervised Temporal Encoders (SSTE) for transaction sequence modeling.
+Graph Risk Propagation (GRP) with GraphSAGE (PyTorch Geometric) to capture layered fraud rings and relational risk.
+Symbolic Rule Inducer (SRI) for interpretable rules distilled from the ensemble.
 
 It supports **real-time scoring (<100ms latency)** and generates **human-readable explanations** for fraud alerts.
 
