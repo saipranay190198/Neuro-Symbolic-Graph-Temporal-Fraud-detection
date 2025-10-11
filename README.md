@@ -1,123 +1,42 @@
+# 🕸️ Graph-Based Model for Fraud Detection
+🕸️ Graph-Based Model for Fraud Detection
 
-# Neuro-Symbolic Graph Temporal (NSGT) Fraud Detection
-
-This repository contains an end-to-end framework for real-time fraud detection using a Neuro-Symbolic Graph Temporal (NSGT) approach.
-
-The system combines:
-
-Self-Supervised Temporal Encoders (SSTE) for transaction sequence modeling.
-Graph Risk Propagation (GRP) with GraphSAGE (PyTorch Geometric) to capture layered fraud rings and relational risk.
-Symbolic Rule Inducer (SRI) for interpretable rules distilled from the ensemble.
-
-It supports **real-time scoring (<100ms latency)** and generates **human-readable explanations** for fraud alerts.
+This repository presents an **end-to-end fraud detection framework** built around **graph-based modeling, temporal learning, and explainable AI** principles.  
+It includes both **synthetic data simulations** and **real-world PaySim integration** for analyzing circular, layered, and coordinated financial fraud networks.
 
 ---
 
-## Project Structure
+## 🚀 Overview
 
-```
-nsgt-fraud-detection/
-│
-├── data/                  # Store PaySim or real transaction datasets
-│   └── paysim.csv
-│
-├── nsgt/                  # Core NSGT modules
-│   ├── __init__.py
-│   ├── pyg_graphsage.py   # GraphSAGE training + node embeddings
-│   ├── temporal_encoder.py# Sequence encoder (SSTE)
-│   ├── ensemble.py        # Supervised head + rule distillation
-│
-├── scripts/
-│   └── load_paysim.py     # Loader & preprocessing for PaySim dataset
-│
-├── notebooks/             # Example experiments & evaluation
-│
-├── README.md              # Project documentation
-└── requirements.txt       # Dependencies
-```
+Financial fraud has evolved into **multi-entity, ring-structured** schemes that evade detection by traditional, rule-based systems.  
+This project leverages **graph learning** and **temporal representation** to model relationships between senders and receivers, uncover hidden fraud rings, and visualize suspicious flows of funds interactively.
+
+### The Framework Combines:
+- 🧠 **Self-Supervised Temporal Encoders (SSTE)** for modeling transaction sequences and user behavior.
+- 🔗 **Graph Risk Propagation (GRP)** using **GraphSAGE (PyTorch Geometric)** to detect layered fraud rings.
+- 💬 **Symbolic Rule Inducer (SRI)** for extracting interpretable fraud patterns from deep models.
+- 🌐 **PyVis Network Graphs** for visualizing circular money movements and network anomalies.
 
 ---
 
-##  Quick Start
+## 🧠 Core Idea
 
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/yourname/nsgt-fraud-detection.git
-cd nsgt-fraud-detection
-```
-
-### 2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Prepare dataset
-
-Download the **PaySim dataset** and place it in the `data/` folder:
-
-```
-data/paysim.csv
-```
-
-Then preprocess:
-
-```bash
-python scripts/load_paysim.py
-```
-
-This saves a cleaned `transactions.parquet` file.
-
-### 4. Train GraphSAGE embeddings
-
-```bash
-python nsgt/pyg_graphsage.py
-```
-
-This builds a dynamic transaction graph and learns **node embeddings**.
-
-### 5. Integrate with temporal encoder + ensemble
-
-* Use embeddings from GraphSAGE.
-* Concatenate with temporal encoder (SSTE) embeddings + tabular features.
-* Train ensemble (Gradient Boosted Trees).
-* Distill symbolic rules for **interpretable alerts**.
+Fraud networks often form **closed loops (circular rings)** or **layered money mule chains**.  
+This framework identifies such structures by:
+- Constructing daily or batch-wise **transaction graphs**
+- Detecting **repeated cyclic patterns**
+- Assigning **risk scores** via **graph embeddings**
+- Using **symbolic reasoning** to generate human-readable fraud rules
 
 ---
 
-##  Evaluation Metrics
+## ⚙️ Features
 
-* **PR-AUC** (Precision-Recall)
-* **Recall\@FPR** (e.g., 0.5% and 1%)
-* **Brier Score** (calibration)
-* **Cost Utility** (business-centric impact)
-* **Latency per alert (<100ms target)**
+- ✅ Synthetic transaction data generation for experimentation
+- 🔄 Circular fraud ring injection for controlled testing
+- 🔍 Temporal entity behavior encoding
+- 🧩 Graph-based relational modeling (via GraphSAGE)
+- 🧠 Risk propagation and fraud scoring
+- 💬 Interpretable symbolic rule extraction
+- 🌐 Interactive visualization using PyVis
 
----
-
-##  Explainability
-
-Each alert comes with:
-
-* **Top symbolic rules** (from SRI distillation)
-* **SHAP values** for local feature attribution
-* **Graph motifs** highlighting layered risk
-
----
-
-##  Roadmap
-
-*  Add Deep Graph Infomax objective for unsupervised GraphSAGE.
-*  Build Docker Compose for real-time demo (Kafka + Redis + Model Server).
-*  Extend PaySim loader to support streaming simulation.
-*  Add benchmark notebooks (PR-AUC, Recall\@FPR).
-
----
-
-## Contributors
-
-* **Sai Pranay Reddy Rachumalla** – Core design, implementation
-* Open to contributions via PRs
-
----
