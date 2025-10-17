@@ -42,13 +42,24 @@ This framework identifies such structures by:
 
 
 ## 🧠 Architecture Pipeline
+## GraphSAGE + Symbolic Rule Inducer (Decision Tree) Pipeline
 
-```python
-# GraphSAGE + Symbolic Rule Inducer (Decision Tree) Pipeline
-# ----------------------------------------------------------
-# Build graph features → Learn embeddings via GraphSAGE → 
-# Generate interpretable fraud detection rules (Decision Tree)
+ Build graph features → Learn embeddings via GraphSAGE →
+ Generate interpretable fraud detection rules (Decision Tree)
 
+
+### 🧱 Components
+
+| Module | Description |
+|---------|-------------|
+| **Graph Construction** | Builds a directed graph from sender-receiver relationships in the transaction dataset |
+| **Feature Engineering** | Adds node-level metrics (in-degree, out-degree, transaction volume, etc.) |
+| **GraphSAGE Embedding** | Learns relational representations of each account/node |
+| **Symbolic Rule Inducer (Decision Tree)** | Translates deep embeddings into explainable “if–then” rules for fraud detection |
+
+### 🧩 Implementation Snippet
+
+python
 import os
 import numpy as np
 import pandas as pd
@@ -60,17 +71,7 @@ from torch_geometric.nn import SAGEConv
 from sklearn.tree import DecisionTreeClassifier, export_text
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score
-from sklearn.preprocessing import StandardScaler
-
-# Assumes df_sample (with sender, receiver, amount, is_fraud) is available
-# ----------------------------------------------------------
-# Build directed graph, engineer node features, and compute embeddings
-
-# [Code truncated here for brevity – see full version in `Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py`]
-
-The full working code is included in Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1) .py
-
----
+from sklearn.preprocessing import StandardScaler 
 
 ## 🧮 Outputs Generated
 
@@ -83,8 +84,6 @@ After running the pipeline, the following artifacts are created:
 | `model_artifacts/sri_rules.txt` | **Human-readable fraud rules** extracted from the Decision Tree |
 
 **Example symbolic rules snippet:**
-
-
 
 --- in_deg <= 1.31
 | |--- emb_0 <= 3511.47
@@ -120,28 +119,28 @@ These rules **approximate the learned deep patterns** in simple threshold-based 
 
 Use **PyVis** (or **NetworkX**) to visualize **fraud rings** and money-flow patterns:
 
-```python
+python
 from pyvis.network import Network
 
 net = Network(notebook=True)
 # Add nodes and edges based on df_sample
 net.show("fraud_network.html")
 
-📁 Folder Structure
+## 📁 Folder Structure
 Folder / File	Description
 Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py	🧠 Main pipeline script integrating GraphSAGE + Decision Tree
 model_artifacts/	💾 Saved embeddings, rule files, and trained artifacts
 data/	📊 Contains sample or PaySim transaction data
 README.md	📘 Documentation file (this one)
 
-🧩 Future Work
+## 🧩 Future Work
 Direction	Description
 ⏳ Temporal GNNs (TGAT, DySAT)	Integrate temporal graph modeling for sequential fraud evolution
 🌍 Federated Graph Fraud Learning	Enable cross-bank collaborative detection while preserving privacy
 💸 Layered Fund Flow Visualization	Advanced visualization of multi-hop mule chains
 ⚙️ Deployment-Ready Risk Scoring API	Serve live fraud probability predictions for new transactions
 
-✨ Citation
+## ✨ Citation
 
 Rachumalla, S.P. (2025). *Graph-Based Model for Fraud Detection: 
 An Explainable AI Framework for Transaction Networks.* GitHub Repository.
