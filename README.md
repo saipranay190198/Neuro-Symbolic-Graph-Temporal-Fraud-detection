@@ -66,7 +66,13 @@ from sklearn.preprocessing import StandardScaler
 # Build directed graph, engineer node features, and compute embeddings
 
 # [Code truncated here for brevity – see full version in `Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py`]
-🧮 Outputs Generated
+
+The full working code is included in Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1) .py
+
+
+---
+
+## 🧮 Outputs Generated
 
 After running the pipeline:
 
@@ -86,7 +92,7 @@ Example symbolic rules snippet:
 
 These rules approximate the learned deep patterns in simple threshold-based form — bridging AI interpretability with operational fraud analysis.
 
-🧭 How to Run
+## 🧭 How to Run
 
 Install dependencies:
 
@@ -99,7 +105,7 @@ python Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) 
 
 Review results in model_artifacts/.
 
-🧠 Explainability & Usage
+## 🧠 Explainability & Usage
 
 The GraphSAGE embeddings encode relational patterns (who transacts with whom and how often).
 
@@ -107,7 +113,7 @@ The Decision Tree converts these continuous embeddings into transparent, rule-ba
 
 These can support AML analysts, auditors, or fintech risk teams for investigative dashboards or alerts.
 
-🌐 Visualization
+## 🌐 Visualization
 
 Use PyVis (or NetworkX drawing utilities) to render fraud rings:
 
@@ -116,14 +122,14 @@ net = Network(notebook=True)
 # Add nodes/edges based on df_sample
 net.show("fraud_network.html")
 
-📁 Folder Structure
+## 📁 Folder Structure
 📂 Graph-Fraud-Detection
 ├── Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py         # Main pipeline script
 ├── model_artifacts/                  # Saved models, embeddings, and rules
 ├── data/                             # Sample or PaySim data
 └── README.md                         # Documentation (this file)
 
-🧩 Future Work
+## 🧩 Future Work
 
 Integration with Temporal GNNs (TGAT, DySAT)
 
@@ -133,7 +139,7 @@ Visualization of layered fund flows
 
 Deployment-ready API for live risk scoring
 
-✨ Citation
+## ✨ Citation
 
 Rachumalla, S.P. (2025). Graph-Based Model for Fraud Detection: 
 An Explainable AI Framework for Transaction Networks. GitHub Repository.
