@@ -69,77 +69,74 @@ from sklearn.preprocessing import StandardScaler
 
 The full working code is included in Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1) .py
 
+---
+## 🧮 Outputs Generated
+
+After running the pipeline, the following artifacts are created:
+
+| File | Description |
+|------|--------------|
+| `model_artifacts/node_embeddings.npy` | Learned **GraphSAGE node embeddings** (latent relational features) |
+| `model_artifacts/node_features_with_embeddings.csv` | Combined **numeric + structural features** for each node |
+| `model_artifacts/sri_rules.txt` | **Human-readable fraud rules** extracted from the Decision Tree |
+
+**Example symbolic rules snippet:**
+
+--- in_deg <= 1.31
+| |--- emb_0 <= 3511.47
+| | |--- degree <= -1.41: Fraud
+| |--- else: Non-Fraud
+|--- else: Non-Fraud
+
+These rules **approximate the learned deep patterns** in simple threshold-based form — bridging **AI interpretability** with **operational fraud analysis**.
 
 ---
 
-## 🧮 Outputs Generated
-
-After running the pipeline:
-
-File	Description
-model_artifacts/node_embeddings.npy	Learned GraphSAGE node embeddings (latent features)
-model_artifacts/node_features_with_embeddings.csv	Combined numeric + relational features per node
-model_artifacts/sri_rules.txt	Human-readable fraud rules extracted from the decision tree
-
-Example symbolic rules snippet:
-
-|--- in_deg <= 1.31
-|   |--- emb_0 <= 3511.47
-|   |   |--- degree <= -1.41: Fraud
-|   |--- else: Non-Fraud
-|--- else: Non-Fraud
-
-
-These rules approximate the learned deep patterns in simple threshold-based form — bridging AI interpretability with operational fraud analysis.
-
 ## 🧭 How to Run
 
-Install dependencies:
+| Step | Command / Description |
+|------|------------------------|
+| **1. Install Dependencies** | ```bash pip install torch torch-geometric networkx pyvis scikit-learn pandas numpy ``` |
+| **2. Run the Model Script** | ```bash python "Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py" ``` |
+| **3. Review Outputs** | Artifacts will be generated inside the `model_artifacts/` directory. |
 
-pip install torch torch-geometric networkx pyvis scikit-learn pandas numpy
-
-Run:
-
-python Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py
-
-
-Review results in model_artifacts/.
+---
 
 ## 🧠 Explainability & Usage
 
-The GraphSAGE embeddings encode relational patterns (who transacts with whom and how often).
+| Concept | Description |
+|----------|-------------|
+| **GraphSAGE Embeddings** | Capture **relational behavior** — who transacts with whom, how often, and how strongly. |
+| **Decision Tree (SRI)** | Converts continuous embeddings into **transparent, rule-based insights**. |
+| **Analyst Utility** | Supports **AML analysts**, **auditors**, and **fintech risk teams** for investigative dashboards and fraud alerts. |
 
-The Decision Tree converts these continuous embeddings into transparent, rule-based insights.
-
-These can support AML analysts, auditors, or fintech risk teams for investigative dashboards or alerts.
+---
 
 ## 🌐 Visualization
 
-Use PyVis (or NetworkX drawing utilities) to render fraud rings:
+Use **PyVis** (or **NetworkX**) to visualize **fraud rings** and money-flow patterns:
 
+```python
 from pyvis.network import Network
+
 net = Network(notebook=True)
-# Add nodes/edges based on df_sample
+# Add nodes and edges based on df_sample
 net.show("fraud_network.html")
 
-## 📁 Folder Structure
-📂 Graph-Fraud-Detection
-├── Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py         # Main pipeline script
-├── model_artifacts/                  # Saved models, embeddings, and rules
-├── data/                             # Sample or PaySim data
-└── README.md                         # Documentation (this file)
+📁 Folder Structure
+Folder / File	Description
+Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py	🧠 Main pipeline script integrating GraphSAGE + Decision Tree
+model_artifacts/	💾 Saved embeddings, rule files, and trained artifacts
+data/	📊 Contains sample or PaySim transaction data
+README.md	📘 Documentation file (this one)
+🧩 Future Work
+Direction	Description
+⏳ Temporal GNNs (TGAT, DySAT)	Integrate temporal graph modeling for sequential fraud evolution
+🌍 Federated Graph Fraud Learning	Enable cross-bank collaborative detection while preserving privacy
+💸 Layered Fund Flow Visualization	Advanced visualization of multi-hop mule chains
+⚙️ Deployment-Ready Risk Scoring API	Serve live fraud probability predictions for new transactions
+✨ Citation
 
-## 🧩 Future Work
+Rachumalla, S.P. (2025). *Graph-Based Model for Fraud Detection: 
+An Explainable AI Framework for Transaction Networks.* GitHub Repository.
 
-Integration with Temporal GNNs (TGAT, DySAT)
-
-Federated Graph Fraud Learning for cross-bank collaboration
-
-Visualization of layered fund flows
-
-Deployment-ready API for live risk scoring
-
-## ✨ Citation
-
-Rachumalla, S.P. (2025). Graph-Based Model for Fraud Detection: 
-An Explainable AI Framework for Transaction Networks. GitHub Repository.
