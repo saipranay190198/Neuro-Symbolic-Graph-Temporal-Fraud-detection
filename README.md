@@ -40,6 +40,7 @@ This framework identifies such structures by:
 
 ---
 
+
 ## 🧠 Architecture Pipeline
 
 ```python
@@ -70,6 +71,7 @@ from sklearn.preprocessing import StandardScaler
 The full working code is included in Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1) .py
 
 ---
+
 ## 🧮 Outputs Generated
 
 After running the pipeline, the following artifacts are created:
@@ -81,6 +83,8 @@ After running the pipeline, the following artifacts are created:
 | `model_artifacts/sri_rules.txt` | **Human-readable fraud rules** extracted from the Decision Tree |
 
 **Example symbolic rules snippet:**
+
+
 
 --- in_deg <= 1.31
 | |--- emb_0 <= 3511.47
@@ -129,12 +133,14 @@ Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py	
 model_artifacts/	💾 Saved embeddings, rule files, and trained artifacts
 data/	📊 Contains sample or PaySim transaction data
 README.md	📘 Documentation file (this one)
+
 🧩 Future Work
 Direction	Description
 ⏳ Temporal GNNs (TGAT, DySAT)	Integrate temporal graph modeling for sequential fraud evolution
 🌍 Federated Graph Fraud Learning	Enable cross-bank collaborative detection while preserving privacy
 💸 Layered Fund Flow Visualization	Advanced visualization of multi-hop mule chains
 ⚙️ Deployment-Ready Risk Scoring API	Serve live fraud probability predictions for new transactions
+
 ✨ Citation
 
 Rachumalla, S.P. (2025). *Graph-Based Model for Fraud Detection: 
