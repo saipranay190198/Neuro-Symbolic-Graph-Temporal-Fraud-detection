@@ -73,6 +73,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.preprocessing import StandardScaler 
 
+Full code Implementation can be found here: Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py
+
 ## 🧮 Outputs Generated
 
 After running the pipeline, the following artifacts are created:
@@ -121,17 +123,16 @@ Use **PyVis** (or **NetworkX**) to visualize **fraud rings** and money-flow patt
 
 python
 from pyvis.network import Network
-
 net = Network(notebook=True)
-# Add nodes and edges based on df_sample
+Add nodes and edges based on df_sample
 net.show("fraud_network.html")
 
 ## 📁 Folder Structure
-Folder / File	Description
-Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py	🧠 Main pipeline script integrating GraphSAGE + Decision Tree
-model_artifacts/	💾 Saved embeddings, rule files, and trained artifacts
-data/	📊 Contains sample or PaySim transaction data
-README.md	📘 Documentation file (this one)
+📂 Graph-Fraud-Detection
+├── Graph Based Model to detect fraudulent transactions(Circular Ring Fraud) (1).py         # Main pipeline script
+├── model_artifacts/                  # Saved models, embeddings, and rules
+├── data/                             # Sample or PaySim data
+└── README.md                         # Documentation (this file)
 
 ## 🧩 Future Work
 Direction	Description
