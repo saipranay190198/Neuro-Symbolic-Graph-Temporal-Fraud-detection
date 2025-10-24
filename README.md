@@ -1,9 +1,29 @@
-# 🕸️ Graph-Based Model for Fraud Detection
-
-This repository presents an **end-to-end fraud detection framework** built around **graph-based modeling, temporal learning, and explainable AI** principles.  
-It integrates **synthetic data simulation** and **PaySim transaction data** to analyze **circular, layered, and coordinated financial fraud networks**.
+# 🕸️ Graph-Based Model for Fraud Detection  
+*A Research-Driven Proof-of-Concept for Explainable Financial Fraud Analysis*  
 
 ---
+
+## 🚀 Overview  
+This repository presents a **conceptual and methodological framework** for detecting financial fraud using **graph-based learning**, **temporal encoding**, and **explainable AI**.  
+
+Developed as a **research-oriented proof-of-concept**, this framework demonstrates how **graph representation learning** can identify complex fraud topologies such as **circular money flows**, **layered mule chains**, and **coordinated fraud rings**.  
+
+The project employs **PaySim**, a publicly available synthetic dataset that simulates real-world mobile transaction systems.  
+Although the data is not sourced from actual financial institutions, it enables **controlled experimentation** to evaluate how advanced AI methods can reveal hidden fraud patterns and provide **interpretable, human-readable insights**.
+
+---
+
+## 🎯 Research Motivation  
+Traditional fraud detection systems rely on **rule-based logic or isolated transaction classification**, often missing collaborative and time-evolving fraud behavior.  
+To address this limitation, the project integrates:  
+
+- 🧠 **Graph Neural Networks (GraphSAGE)** for relational and topological feature learning  
+- ⏳ **Temporal Feature Encoding** to capture evolving transaction patterns  
+- 💬 **Symbolic Rule Induction (Decision Tree)** for explainable, rule-based reasoning  
+
+Together, these components form a hybrid system that balances **deep learning power** with **human interpretability**, aligning with the current shift toward **trustworthy and transparent AI** in financial domains.  
+
+--
 
 ## 🚀 Overview
 
@@ -134,12 +154,24 @@ net.show("fraud_network.html")
 ├── data/                             # Sample or PaySim data
 └── README.md                         # Documentation (this file)
 
-## 🧩 Future Work
-Direction	Description
-⏳ Temporal GNNs (TGAT, DySAT)	Integrate temporal graph modeling for sequential fraud evolution
-🌍 Federated Graph Fraud Learning	Enable cross-bank collaborative detection while preserving privacy
-💸 Layered Fund Flow Visualization	Advanced visualization of multi-hop mule chains
-⚙️ Deployment-Ready Risk Scoring API	Serve live fraud probability predictions for new transactions
+## Research Contribution
+
+This framework contributes toward the explainable graph learning paradigm in fraud analytics by demonstrating:
+
+How graph topology and temporal behavior reveal multi-entity fraud
+
+How symbolic reasoning can make deep models auditable
+
+How synthetic simulations like PaySim can safely advance fraud research without exposing sensitive data
+
+## 🧩 Future Work(Based on limitations/challenges)
+
+ How can large-scale transaction graphs (millions of nodes) be efficiently processed using distributed or sampling-based GNNs? 
+ How can temporal GNNs (e.g., TGAT, DySAT) model streaming financial data for *near-real-time* detection?                      
+ How can symbolic reasoning or rule extraction make black-box embeddings interpretable for compliance and auditors?            
+ How can *federated graph learning* enable cross-institution collaboration without violating privacy?                          
+
+#
 
 ## ✨ Citation
 
