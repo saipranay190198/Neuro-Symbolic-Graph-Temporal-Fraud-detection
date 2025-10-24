@@ -166,7 +166,8 @@ How synthetic simulations like PaySim can safely advance fraud research without 
 
 ## 🧩 Future Work(Based on limitations/challenges)
 
- How can large-scale transaction graphs (millions of nodes) be efficiently processed using distributed or sampling-based GNNs? 
+ How can large-scale transaction graphs (millions of nodes) be efficiently processed using distributed or sampling-based GNNs?
+ How can we design a scalable streaming graph framework that supports real-time graph updates and anomaly detection for continuously evolving financial transaction networks?
  How can temporal GNNs (e.g., TGAT, DySAT) model streaming financial data for *near-real-time* detection?                      
  How can symbolic reasoning or rule extraction make black-box embeddings interpretable for compliance and auditors?            
  How can *federated graph learning* enable cross-institution collaboration without violating privacy?                          
